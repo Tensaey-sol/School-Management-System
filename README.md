@@ -1,4 +1,4 @@
-# 🏫 School Management Admin Dashboard
+# 🏫 School Management System
 
 A modern, beginner-friendly **School Management System** built with **React**, **Next.js**, **Prisma ORM**, and **PostgreSQL**. This project includes admin, teacher, student, and parent dashboards — all styled with **Tailwind CSS**, featuring responsive tables, animated charts, role-based authentication, and containerized for deployment using **Docker**.
 
