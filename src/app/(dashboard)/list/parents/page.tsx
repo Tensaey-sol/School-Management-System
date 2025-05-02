@@ -1,7 +1,8 @@
+import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { parentsData } from "@/lib/data";
+import { parentsData, role } from "@/lib/data";
 import Image from "next/image";
 
 type Parent = {
@@ -54,6 +55,16 @@ const ParentListPage = () => {
       <td className="hidden md:table-cell">{item.students.join(",")}</td>
       <td className="hidden md:table-cell">{item.phone}</td>
       <td className="hidden md:table-cell">{item.address}</td>
+      <td>
+        <div className="flex items-center gap-2">
+          {role === "admin" && (
+            <>
+              <FormModal table="parent" type="update" data={item} />
+              <FormModal table="parent" type="delete" id={item.id} />
+            </>
+          )}
+        </div>
+      </td>
     </tr>
   );
 
@@ -71,6 +82,7 @@ const ParentListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
+            {role === "admin" && <FormModal table="teacher" type="create" />}
           </div>
         </div>
       </div>
